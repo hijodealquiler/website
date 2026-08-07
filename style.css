@@ -280,6 +280,18 @@ h1, h2, h3 {
 .price-detail { font-size: 13px; color: var(--text-soft); }
 .price-note { text-align: center; font-family: var(--font-accent); font-style: italic; color: var(--text-soft); font-size: 14.5px; }
 
+.price-single-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+.price-single {
+  border: 1.5px solid var(--border); border-radius: 20px;
+  padding: 40px 48px; text-align: center;
+  max-width: 380px; width: 100%;
+  background: var(--bg-tint);
+}
+.price-single .price-label { font-size: 14px; }
+.price-single .price-value { font-size: 44px; }
+.price-single .price-value span { font-size: 18px; }
+.price-single .price-detail { font-size: 14px; margin-top: 4px; }
+
 /* ===== Full price table (expandable) ===== */
 .price-full { max-width: 780px; margin: 32px auto 0; }
 .price-full > summary {
