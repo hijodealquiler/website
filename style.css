@@ -445,3 +445,24 @@ h1, h2, h3 {
 .example-card .example-title { font-weight: 600; color: var(--navy); font-size: 14.5px; margin-bottom: 4px; }
 .example-card .example-detail { font-size: 13.5px; color: var(--text-soft); }
 .example-card .example-total { font-weight: 700; color: var(--teal); }
+
+/* ===== Distance tool ===== */
+.distance-tool {
+  background: var(--bg-tint); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px 26px; margin: 36px 0;
+}
+.distance-tool h3 { font-size: 17px; margin-bottom: 6px; }
+.distance-tool .hint { color: var(--text-soft); font-size: 13.5px; margin-bottom: 18px; }
+.distance-tool label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.distance-tool input {
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+  border-radius: 10px; font-size: 15px; font-family: var(--font-display);
+  color: var(--text); background: #fff; margin-bottom: 16px;
+}
+.distance-tool input:focus { outline: none; border-color: var(--teal); }
+.distance-tool .btn { width: 100%; }
+@media (min-width: 640px) {
+  .distance-tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; align-items: end; }
+  .distance-tool-grid input { margin-bottom: 0; }
+  .distance-tool-grid .btn-row { grid-column: 1 / -1; }
+}
