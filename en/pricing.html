@@ -70,6 +70,24 @@
   <section class="section">
     <div class="wrap" style="max-width:860px;">
 
+      <div class="distance-tool">
+        <h3>How far is it from your home?</h3>
+        <p class="hint">Enter your address and the destination to see the route and distance on Google Maps &mdash; a quick way to estimate the price before calling.</p>
+        <div class="distance-tool-grid">
+          <div>
+            <label for="origen">Your address</label>
+            <input type="text" id="origen" placeholder="E.g. Calle Poeta Mas y Ros 3, Valencia">
+          </div>
+          <div>
+            <label for="destino">Destination</label>
+            <input type="text" id="destino" placeholder="E.g. Hospital La Fe, Valencia">
+          </div>
+          <div class="btn-row">
+            <a href="#" id="verRutaBtn" class="btn btn-primary" target="_blank" rel="noopener">View route and distance on Google Maps</a>
+          </div>
+        </div>
+      </div>
+
       <div class="price-section-title">
         <span class="price-section-badge">A</span>
         <h2 style="font-size:22px; margin:0;">Companionship services</h2>
@@ -212,5 +230,30 @@
 </div>
 
 <script src="../script.js"></script>
+<script>
+(function(){
+  var btn = document.getElementById('verRutaBtn');
+  if (!btn) return;
+  function updateHref(){
+    var o = document.getElementById('origen').value.trim();
+    var d = document.getElementById('destino').value.trim();
+    var url = 'https://www.google.com/maps/dir/?api=1';
+    if (o) url += '&origin=' + encodeURIComponent(o);
+    if (d) url += '&destination=' + encodeURIComponent(d);
+    btn.setAttribute('href', url);
+  }
+  document.getElementById('origen').addEventListener('input', updateHref);
+  document.getElementById('destino').addEventListener('input', updateHref);
+  btn.addEventListener('click', function(e){
+    var o = document.getElementById('origen').value.trim();
+    var d = document.getElementById('destino').value.trim();
+    if (!o || !d) {
+      e.preventDefault();
+      alert('Please fill in both addresses.');
+    }
+  });
+  updateHref();
+})();
+</script>
 </body>
 </html>
